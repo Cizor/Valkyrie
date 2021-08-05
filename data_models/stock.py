@@ -1,5 +1,3 @@
-from utility import *
-from config import *
 from data_models.tick import Tick
 
 

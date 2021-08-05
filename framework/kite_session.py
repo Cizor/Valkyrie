@@ -1,9 +1,10 @@
 import logging
 
 from kiteconnect import KiteConnect
-from kite_ticker import KTicker
-from utility import *
-from config import *
+from utility.config import *
+import pickle
+
+from utility.utility import pickle_write
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -18,6 +19,7 @@ class KiteSession():
         # print(self.k.login_url())
         self._set_access_token_k()
         self._prepare_all_files()
+        # self.test()
 
     def _set_access_token_k(self):
         """This function returns sets access token for kite session"""
@@ -70,8 +72,18 @@ class KiteSession():
             mid_cap_token_dict[mid_cap_symbol] = self.data[mid_cap_symbol][INSTRUMENT_TOKEN]
         pickle_write(MID_CAP_INSTRUMENT_TOKENS_FILE, mid_cap_token_dict)
 
-
-if __name__ == '__main__':
-    session = KiteSession()
-    ticker = KTicker()
+    def test(self):
+        from utility.utility import pickle_read
+        from datetime import datetime
+        all_stock = pickle_read(DB_FILE)
+        token = all_stock['RELIANCE']['instrument_token']
+        data = self.k.historical_data(token, datetime(2021, 8, 5, 10, 15, 0), datetime(2021, 8, 5, 10, 30, 0), "15minute")
+        highs = list()
+        # 2112.7 with minute
+        # 2112.7 with 5minute
+        # 2112.7 with 15minute
+        for i in data:
+            highs.append(i['high'])
+        print(highs)
+        print(max(highs))
 

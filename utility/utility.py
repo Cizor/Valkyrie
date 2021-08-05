@@ -1,5 +1,5 @@
 import pickle
-from config import *
+from utility.config import *
 
 
 def pickle_read(file_name):
@@ -7,7 +7,7 @@ def pickle_read(file_name):
 
 
 def pickle_write(file_name, value):
-    with open(file_name, 'ab') as db:
+    with open(file_name, "wb") as db:
         pickle.dump(value, db)
 
 

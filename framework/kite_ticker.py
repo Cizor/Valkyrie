@@ -1,9 +1,10 @@
 import logging
 from data_models.tick_list import TickList
-from handle_stock_data import HandleStockData
-from utility import *
 from kiteconnect import KiteTicker
-from observer_abstract import Observer, Subject
+from abstracts.observer_abstract import Observer, Subject
+from framework.handle_stock_data import HandleStockData
+from utility.config import API_KEY, ACCESS_TOKEN, LARGE_CAP_INSTRUMENT_TOKENS_FILE, MID_CAP_INSTRUMENT_TOKENS_FILE
+from utility.utility import pickle_read
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -38,10 +39,10 @@ class KTicker(Subject):
         Callback on successful connect.
         """
         # Subscribe to a list of instrument_tokens
-        ws.subscribe(list(self.get_large_cap_instrument_token_list().values())
-                     + list(self.get_mid_cap_instrument_token_list().values()))
-        ws.set_mode(ws.MODE_FULL, list(self.get_large_cap_instrument_token_list().values())
-                    + list(self.get_mid_cap_instrument_token_list().values()))
+        ws.subscribe([*list(self.get_large_cap_instrument_token_list().values()),
+                     *list(self.get_mid_cap_instrument_token_list())])
+        ws.set_mode(ws.MODE_FULL, [*list(self.get_large_cap_instrument_token_list().values()),
+                    *list(self.get_mid_cap_instrument_token_list())])
 
     def on_close(self, ws, code, reason):
         """

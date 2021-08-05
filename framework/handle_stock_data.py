@@ -1,7 +1,8 @@
-from observer_abstract import Observer, Subject
+from abstracts.observer_abstract import Observer, Subject
 from data_models.stock import Stock
 from test_strategy.testing import Testing
-from utility import *
+from utility.config import LARGE_CAP_FILE, INSTRUMENT_TOKEN, MID_CAP_FILE
+from utility.utility import load_all_stock_data, pickle_read
 
 
 class HandleStockData(Observer, Subject):

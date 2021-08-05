@@ -1,8 +1,5 @@
-from observer_abstract import Observer, Subject
-from datetime import datetime
-from nsetools import Nse
-from pprint import pprint
-
+from abstracts.observer_abstract import Observer, Subject
+import schedule
 
 
 class Testing(Observer):
@@ -24,7 +21,6 @@ class Testing(Observer):
 
     def __init__(self, stocks_data):
         self.stocks_data = stocks_data
-        self.nse = Nse()
 
     def update(self, subject: Subject):
         self.stocks_data = subject.testing_data
@@ -35,11 +31,6 @@ class Testing(Observer):
             self.change_dict[key] = val.change
         self.change_dict = {k: v for k, v in sorted(self.change_dict.items(), key=lambda item: item[1])}
 
-    def get_top_gainers(self):
-        return self.nse.get_top_gainers()
-
-    def get_top_losers(self):
-        return self.nse.get_top_losers()
 
 
 

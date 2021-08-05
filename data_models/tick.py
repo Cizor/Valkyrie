@@ -1,4 +1,4 @@
-from config import *
+from utility.config import *
 
 """
 one_tick = {'tradable': True, 'mode': 'full', 'instrument_token': 2953217, 'last_price': 3272.65, 'last_quantity': 134,
