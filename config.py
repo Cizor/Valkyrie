@@ -1,5 +1,5 @@
 # Intial params
-ACCESS_TOKEN = "FXik8WFvrhVWKMv5R3zS96KUshXbfhWp"
+ACCESS_TOKEN = "0MessKpMMBO5HnImKBnBCDYVj4rKb8l5"
 API_KEY = "05q4h560cebbpyjd"
 
 # FILES constants

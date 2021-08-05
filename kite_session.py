@@ -1,4 +1,5 @@
 import logging
+
 from kiteconnect import KiteConnect
 from kite_ticker import KTicker
 from utility import *
@@ -7,10 +8,11 @@ from config import *
 logging.basicConfig(level=logging.DEBUG)
 
 
-class KiteSession:
+class KiteSession():
     """This class maintains Kite session"""
 
     def __init__(self):
+        print("I am init")
         logging.debug("Starting Kite session")
         self.k = KiteConnect(api_key=API_KEY)
         # print(self.k.login_url())
@@ -72,3 +74,4 @@ class KiteSession:
 if __name__ == '__main__':
     session = KiteSession()
     ticker = KTicker()
+

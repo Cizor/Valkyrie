@@ -8,6 +8,7 @@ class Subject(ABC):
     """
 
     stock_info = None
+    testing_data = None
 
     @abstractmethod
     def attach(self, observer: Observer) -> None:

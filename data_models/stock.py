@@ -52,12 +52,27 @@ class Stock:
         self._last_trade_time = value
 
     def handle_tick(self, tick):
+        """
+        Check if instrument token is correct and then assign change value only if
+        value has been changed
+        :param tick:
+        :return:
+        """
         if isinstance(tick, Tick) and tick.instrument_token == self.instrument_token:
-            self.last_price = tick.last_price
-            self.average_price = tick.average_price
-            self.change = tick.change
+            if self.last_price != tick.last_price:
+                self.last_price = tick.last_price
+            if self.average_price != tick.average_price:
+                self.average_price = tick.average_price
+            if self.change != tick.change:
+                self.change = tick.change
             self.last_trade_time = tick.last_trade_time
         else:
             raise TypeError("Tick type data not sent or instrument token is wrong")
+
+    def __lt__(self, other):
+        return self.last_price < other.last_price
+
+    def __gt__(self, other):
+        return self.last_price > other.last_price
 
 
