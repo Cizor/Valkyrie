@@ -1,6 +1,6 @@
 # Initial params
-ACCESS_TOKEN = "mLAGNu79NKprhU0q1OXlpXquqJ6F5ZfW"
-API_KEY = "05q4h560cebbpyjd"
+ACCESS_TOKEN = "test"
+API_KEY = "test"
 
 # FILES constants
 DB_FILE = "files/all_stocks"
