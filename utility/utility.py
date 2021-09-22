@@ -1,5 +1,6 @@
 import pickle
 from utility.config import *
+from db.mis_stocks import mis_stocks
 
 
 def pickle_read(file_name):
@@ -15,3 +16,7 @@ def load_all_stock_data():
     """This function loads all stock data. If contents in DB_FILE is changed by ticker or any other module,
     it will load with those new changes."""
     return pickle_read(DB_FILE)
+
+
+def load_mis_allowed_stocks():
+    return mis_stocks

@@ -1,5 +1,5 @@
 # Initial params
-ACCESS_TOKEN = "0MessKpMMBO5HnImKBnBCDYVj4rKb8l5"
+ACCESS_TOKEN = "mLAGNu79NKprhU0q1OXlpXquqJ6F5ZfW"
 API_KEY = "05q4h560cebbpyjd"
 
 # FILES constants
@@ -13,8 +13,9 @@ LARGE_CAP_FILE_NAME_CSV = "files/csv/large_cap.csv"
 MID_CAP_FILE = "files/mid_caps"
 LARGE_CAP_FILE = "files/large_caps"
 
-GAINERS_DICT_FILE = "files/gainers"
-LOSERS_DICT_FILE = "files/losers"
+GAINERS_DICT_FILE = "../files/gainers"
+LOSERS_DICT_FILE = "../files/losers"
+PIKACHU_TARGET_FILE = "files/pikachu_target"
 
 # Stock properties
 LAST_PRICE = "last_price"
@@ -33,9 +34,11 @@ INSTRUMENT_TYPE = "instrument_type"
 INSTRUMENT_TOKEN = "instrument_token"
 TICK_SIZE = "tick_size"
 SYMBOL = "symbol"
-CHANGE_PERCENTAGE = "netPrice"
+CHANGE_PERCENTAGE = "change_percentage"
+NET_PRICE = "netPrice"
 HIGH = "high"
 LOW = "low"
+QUANTITY = "quantity"
 
 # Intervals
 INTERVAL_MINUTE = "minute"
@@ -52,4 +55,26 @@ PIKACHU_BUY_TAG = "Pikachu BUY"
 PIKACHU_SELL_TAG = "Pikachu SELL"
 
 # Run times
-PIKACHU_LAUNCH_TIME = "09:45"
+PIKACHU_LAUNCH_TIME = "09:44"
+
+NIFTY_50_STOCKS = ['EICHERMOT', "ULTRACEMCO", "BAJFINANCE", "ADANIPORTS", "GRASIM", "BAJAJFINSV", "NESTLEIND",
+                   "TATACONSUM", "BAJAJ-AUTO", "BRITANNIA", "SHREECEM", "CIPLA", "HDFCLIFE", "IOC", "TCS", "RELIANCE",
+                   "UPL", "HINDUNILVR", "ITC", "TITAN", "DIVISLAB", "M&M", "TECHM", "SUNPHARMA", "HDFCBANK", "DRREDDY",
+                   "TATASTEEL", "BPCL", "LT", "ASIANPAINT", "INFY", "HEROMOTOCO", "COALINDIA", "NTPC", "BHARTIARTL",
+                   "ONGC", "SBIN", "MARUTI", "AXISBANK", "HCLTECH", "JSWSTEEL", "WIPRO", "HDFC", "INDUSINDBK",
+                   "POWERGRID", "TATAMOTORS", "SBILIFE", "ICICIBANK", "HINDALCO", "KOTAKBANK"]
+
+ORDER_STATUS_LIST = ["OPEN","OPEN PENDING","VALIDATION PENDING","PUT ORDER REQ RECEIVED","REJECTED",
+                     "COMPLETE", "MODIFIED", "MODIFY PENDING", "MODIFY VALIDATION PENDING", "CANCELLED",
+                     "CANCEL PENDING", " TRIGGER PENDING"]
+
+INTERVAL_DAY_RATIO = {
+    INTERVAL_MINUTE: 60,
+    INTERVAL_3_MINUTE: 100,
+    INTERVAL_5_MINUTE: 100,
+    INTERVAL_10_MINUTE: 100,
+    INTERVAL_15_MINUTE: 200,
+    INTERVAL_30_MINUTE: 200,
+    INTERVAL_60_MINUTE: 400,
+    INTERVAL_DAY: 2000
+}

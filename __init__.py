@@ -1,14 +1,21 @@
-from multiprocessing import Process
+import multiprocessing
+from multiprocessing import Process, Manager
 
+from Arceus.arceus import Arceus
+from Pikachu.pikachu import Pikachu
 from framework.kite_session import KiteSession
-from framework.kite_ticker import KTicker
+from framework.ticker import KTicker
+
+from Dragonite.dragonite import Dragonite
+from Dragonite.dragonair import Dragonair
+
+from handle_data.handle_stock_data import HandleStockData
 from side_update.update_gainers import UpdateGainers
 from side_update.update_losers import UpdateLosers
 
 
-def init():
-    KiteSession()
-    # KTicker()
+def handle():
+    KTicker()
 
 
 def update_gainers():
@@ -18,18 +25,32 @@ def update_gainers():
 def update_losers():
     UpdateLosers()
 
+def pikachu():
+    Pikachu()
+
+def dragonite():
+    Dragonite()
+
+
+def arceus():
+    Arceus()
+
 
 if __name__ == '__main__':
-    # framework = Process(target=init)
-    # framework.start()
-    # framework.join()
+    framework1 = Process(target=pikachu)
+    # framework2 = Process(target=Dragonite)
+    framework1.start()
+    # framework2.start()
+    framework1.join()
+    # framework2.join()
+    """
+    framework3 = Process(target=arceus)
+    framework3.start()
+    framework3.join()
+    """
 
-    update_gainers_process = Process(target=update_gainers)
-    update_gainers_process.start()
+    # framework4 = Process(target=Dragonair)
 
-    update_losers_process = Process(target=update_losers)
-    update_losers_process.start()
+    # framework4.start()
 
-    update_gainers_process.join()
-    update_losers_process.join()
-
+    # framework4.join()

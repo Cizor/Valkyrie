@@ -1,13 +1,19 @@
 from data_models.tick import Tick
+from data_models.tick_list import TickList
+from kiteconnect import KiteTicker
+from utility.config import API_KEY, ACCESS_TOKEN
 
 
-class Stock:
+class Stock():
     def __init__(self, ins_token):
+        self.kws = KiteTicker(API_KEY, ACCESS_TOKEN)
         self._instrument_token = ins_token
         self._last_price = 0
         self._change = 0
         self._average_price = 0
         self._last_trade_time = 0
+        self.websocket = None
+        self.tick_objects = dict()
 
     @property
     def last_price(self):
@@ -72,5 +78,4 @@ class Stock:
 
     def __gt__(self, other):
         return self.last_price > other.last_price
-
 
