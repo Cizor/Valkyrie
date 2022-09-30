@@ -36,7 +36,6 @@ class Pikachu:
         while True:
            schedule.run_pending()
 
-
     def _identify_stock(self):
         self._get_losers_gainers()
         data = self._segregate_data()
